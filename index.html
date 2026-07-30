@@ -4,12 +4,118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DPP Radar — Digital Product Passport, tracked</title>
-<meta name="description" content="DPP Radar aggregates official EU information on the Digital Product Passport: who it applies to, the rollout timeline, product categories, how it works, and what shoppers see after scanning the QR code.">
+<meta name="description" content="Independent tracker for the EU Digital Product Passport: who it applies to, the ESPR rollout timeline, product categories in scope, how a DPP works, and what a QR scan shows.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="DPP Radar">
+<link rel="canonical" href="https://maximrotaruwbs.github.io/dpp-radar/">
+<meta name="theme-color" content="#060a0d">
+
+<!-- Open Graph / Facebook, LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DPP Radar">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://maximrotaruwbs.github.io/dpp-radar/">
+<meta property="og:title" content="DPP Radar — Digital Product Passport, tracked">
+<meta property="og:description" content="Independent tracker for the EU Digital Product Passport: scope, rollout timeline, product categories, how it works, and what a QR scan shows — sourced only from official EU pages.">
+<meta property="og:image" content="https://maximrotaruwbs.github.io/dpp-radar/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DPP Radar — Digital Product Passport, everything worth tracking on one screen.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DPP Radar — Digital Product Passport, tracked">
+<meta name="twitter:description" content="Independent tracker for the EU Digital Product Passport: scope, rollout timeline, product categories, how it works, and what a QR scan shows.">
+<meta name="twitter:image" content="https://maximrotaruwbs.github.io/dpp-radar/assets/img/og-image.png">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23070c10'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2352e8a4' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2352e8a4' stroke-width='1' opacity='.6'/%3E%3Cline x1='16' y1='16' x2='27' y2='9' stroke='%2352e8a4' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%2352e8a4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DPP Radar",
+  "url": "https://maximrotaruwbs.github.io/dpp-radar/",
+  "description": "Independent tracker aggregating official EU information on the Digital Product Passport (DPP): scope, ESPR rollout timeline, product categories, mechanics, and consumer-facing preview.",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "DPP Radar",
+    "url": "https://maximrotaruwbs.github.io/dpp-radar/",
+    "disambiguatingDescription": "Independent aggregator, not affiliated with or endorsed by the European Commission."
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly is a Digital Product Passport?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A structured, machine-readable set of data about a specific product — materials, origin, durability, repairability, carbon footprint, end-of-life instructions — linked to a unique identifier and reachable via a data carrier such as a QR code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a DPP mandatory for my product right now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the category. Batteries above 2kWh become mandatory from 18 February 2027. Other categories (textiles, tyres, furniture, iron & steel, aluminium) follow through 2027–2030 as their delegated acts are adopted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is legally responsible for creating it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The economic operator placing the product on the EU market — typically the manufacturer or, for imported goods, the importer. Retailers and distributors must ensure a valid passport is available, not create one themselves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a DPP replace my existing product labels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It complements mandatory physical labelling (safety marks, care labels, energy labels) rather than replacing it. Think of it as a deeper, always-current layer sitting behind the label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the data actually live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The full data set can be hosted by the manufacturer or a service provider; the EU DPP Registry stores the unique identifier and core metadata needed to look up and verify the record, not necessarily every field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if we don't comply in time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non-compliant products can be blocked from entering the EU market or withdrawn from sale by market surveillance authorities, alongside penalties set by each member state. Enforcement generally begins 18 months after a category's delegated act takes effect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this page an official EU source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — DPP Radar is an independent aggregator built to make the public information easier to scan. Always confirm requirements that affect compliance decisions directly on ec.europa.eu."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -150,10 +256,64 @@
       </div>
 
       <div class="timeline-wrap" data-reveal>
-        <div class="timeline-track" id="timelineTrack" tabindex="0" role="list" aria-label="DPP regulatory timeline"></div>
+        <div class="timeline-track" id="timelineTrack" tabindex="0" role="list" aria-label="DPP regulatory timeline">
+          <div class="tl-node status-done" role="listitem" tabindex="0">
+            <span class="tl-date">18 Jul 2024</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>ESPR enters into force</h4><span class="tl-tag">Framework</span></div>
+          </div>
+          <div class="tl-node status-done" role="listitem" tabindex="0">
+            <span class="tl-date">19 Jul 2026</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>ESPR reaches full application</h4><span class="tl-tag">Framework</span></div>
+          </div>
+          <div class="tl-node status-done" role="listitem" tabindex="0">
+            <span class="tl-date">20 Jul 2026</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>EU DPP Registry goes live</h4><span class="tl-tag">Infrastructure</span></div>
+          </div>
+          <div class="tl-node status-today" style="width:150px;flex:0 0 150px">
+            <span class="tl-today-flag">TODAY · 30 Jul 2026</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>You are here</h4><span class="tl-tag">Live status</span></div>
+          </div>
+          <div class="tl-node status-next" role="listitem" tabindex="0">
+            <span class="tl-date">31 Dec 2026</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Iron &amp; Steel delegated act (indicative)</h4><span class="tl-tag">Delegated act</span></div>
+          </div>
+          <div class="tl-node status-later" role="listitem" tabindex="0">
+            <span class="tl-date">18 Feb 2027</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Battery passport becomes mandatory</h4><span class="tl-tag">Enforcement</span></div>
+          </div>
+          <div class="tl-node status-later" role="listitem" tabindex="0">
+            <span class="tl-date">31 Dec 2027</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Textiles, tyres &amp; aluminium delegated acts (indicative)</h4><span class="tl-tag">Delegated act</span></div>
+          </div>
+          <div class="tl-node status-later" role="listitem" tabindex="0">
+            <span class="tl-date">31 Dec 2028</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Furniture delegated act + ESPR mid-term review</h4><span class="tl-tag">Delegated act</span></div>
+          </div>
+          <div class="tl-node status-later" role="listitem" tabindex="0">
+            <span class="tl-date">31 Dec 2029</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Mattresses delegated act (indicative)</h4><span class="tl-tag">Delegated act</span></div>
+          </div>
+          <div class="tl-node status-later" role="listitem" tabindex="0">
+            <span class="tl-date">31 Dec 2030</span>
+            <span class="tl-dot"></span>
+            <div class="tl-card"><h4>Full framework across covered categories</h4><span class="tl-tag">Framework</span></div>
+          </div>
+        </div>
       </div>
 
-      <div class="timeline-detail" id="timelineDetail" aria-live="polite"></div>
+      <div class="timeline-detail" id="timelineDetail" aria-live="polite">
+        <b>31 Dec 2026 — Iron &amp; Steel delegated act (indicative)</b> · Coming up next<br>
+        Iron and steel — an intermediate product feeding many finished goods — is first in line for a delegated act, expected before the end of 2026.
+      </div>
     </div>
   </section>
 
@@ -174,7 +334,56 @@
         <button class="chip" data-cat-filter="Working plan / proposed">Working plan / proposed</button>
       </div>
 
-      <div class="grid category-grid" id="categoryGrid" data-reveal></div>
+      <div class="grid category-grid" id="categoryGrid" data-reveal>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">🔋</span><span class="status-pill force">Regulation in force</span></div>
+          <h3>Batteries</h3>
+          <p>EV, industrial and LMT batteries above 2kWh need a QR-linked battery passport under the Battery Regulation.</p>
+          <span class="cat-date">Mandatory from 18 Feb 2027</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">🔩</span><span class="status-pill pending">Delegated act expected</span></div>
+          <h3>Iron &amp; Steel</h3>
+          <p>An intermediate product prioritised first, since finished-goods passports downstream depend on its data.</p>
+          <span class="cat-date">Delegated act expected 2026</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">👕</span><span class="status-pill pending">Delegated act expected</span></div>
+          <h3>Textiles &amp; Apparel</h3>
+          <p>Clothing and footwear, one of the six product groups named in the first ESPR Working Plan.</p>
+          <span class="cat-date">Delegated act expected 2027</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">🛞</span><span class="status-pill pending">Delegated act expected</span></div>
+          <h3>Tyres</h3>
+          <p>Passenger and commercial vehicle tyres, covering durability, abrasion and material content.</p>
+          <span class="cat-date">Delegated act expected 2027</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">⛓️</span><span class="status-pill pending">Delegated act expected</span></div>
+          <h3>Aluminium</h3>
+          <p>Second intermediate product in scope, feeding data into finished-goods passports.</p>
+          <span class="cat-date">Delegated act expected 2027</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">🛋️</span><span class="status-pill pending">Delegated act expected</span></div>
+          <h3>Furniture</h3>
+          <p>Domestic and office furniture, part of the first ESPR Working Plan.</p>
+          <span class="cat-date">Delegated act expected 2028</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">🛏️</span><span class="status-pill proposed">Working plan / proposed</span></div>
+          <h3>Mattresses</h3>
+          <p>Closes out the six product groups named in the first ESPR Working Plan, furthest out on the timeline.</p>
+          <span class="cat-date">Delegated act expected 2029</span>
+        </article>
+        <article class="card cat-card">
+          <div class="cat-top"><span class="cat-icon">💻</span><span class="status-pill proposed">Working plan / proposed</span></div>
+          <h3>Electronics &amp; ICT</h3>
+          <p>Flagged for a future working-plan round, alongside recycled-content rules for electricals.</p>
+          <span class="cat-date">Beyond the current Working Plan</span>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -286,9 +495,40 @@
         <div class="phone-stage">
           <div class="phone">
             <div class="phone-notch"></div>
-            <div class="phone-screen" id="phoneScreen"></div>
+            <div class="phone-screen" id="phoneScreen">
+              <div class="pd-hero">
+                <div class="pd-thumb">🧥</div>
+                <div class="pd-name">All-Weather Shell Jacket</div>
+                <div class="pd-sub">GTIN 04012345678905 · SKU J-2031</div>
+              </div>
+              <div class="pd-score">
+                <div class="ring" style="--pct:82"><span>82</span></div>
+                <div class="pd-score-label"><b>Environmental performance</b>Scored against category peers</div>
+              </div>
+              <div class="pd-block">
+                <h5>Material composition</h5>
+                <div class="pd-bar-row"><span class="lbl">Recycled polyester</span><span class="pd-bar"><i style="width:62%"></i></span><span class="val">62%</span></div>
+                <div class="pd-bar-row"><span class="lbl">Virgin nylon</span><span class="pd-bar"><i style="width:23%"></i></span><span class="val">23%</span></div>
+                <div class="pd-bar-row"><span class="lbl">Elastane</span><span class="pd-bar"><i style="width:8%"></i></span><span class="val">8%</span></div>
+                <div class="pd-bar-row"><span class="lbl">Trims / other</span><span class="pd-bar"><i style="width:7%"></i></span><span class="val">7%</span></div>
+              </div>
+              <div class="pd-block">
+                <h5>Key facts</h5>
+                <div class="pd-bar-row"><span class="lbl">Carbon footprint</span><span class="val" style="flex:1;text-align:left;color:var(--text)">4.8 kg CO₂e / unit</span></div>
+                <div class="pd-bar-row"><span class="lbl">Repairability</span><span class="val" style="flex:1;text-align:left;color:var(--text)">7.5 / 10</span></div>
+              </div>
+              <div class="pd-block">
+                <h5>Certifications</h5>
+                <div class="pd-tags"><span>Repair guide available</span><span>Take-back program</span><span>OEKO-TEX certified</span></div>
+              </div>
+              <div class="pd-note">End of life: return to any partner store for recycling or resale.</div>
+            </div>
           </div>
-          <div class="phone-callouts" id="phoneCallouts"></div>
+          <div class="phone-callouts" id="phoneCallouts">
+            <div class="callout"><span class="num">1</span><p>The scan resolves to a unique product ID looked up in the EU DPP Registry — not a generic marketing page.</p></div>
+            <div class="callout"><span class="num">2</span><p>Data is grouped by what the viewer needs: identity, materials, footprint, then care &amp; end-of-life.</p></div>
+            <div class="callout"><span class="num">3</span><p>Access can be tiered — a shopper sees a summary, while a recycler or auditor can unlock deeper technical data.</p></div>
+          </div>
         </div>
       </div>
     </div>
