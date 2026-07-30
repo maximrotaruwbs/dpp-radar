@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DPP Radar — Digital Product Passport, tracked</title>
+<meta name="description" content="DPP Radar aggregates official EU information on the Digital Product Passport: who it applies to, the rollout timeline, product categories, how it works, and what shoppers see after scanning the QR code.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23070c10'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2352e8a4' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2352e8a4' stroke-width='1' opacity='.6'/%3E%3Cline x1='16' y1='16' x2='27' y2='9' stroke='%2352e8a4' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%2352e8a4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><circle class="ring r1" cx="16" cy="16" r="14.5"/><circle class="ring r2" cx="16" cy="16" r="10"/><circle class="ring r3" cx="16" cy="16" r="5.5"/><line class="sweep" x1="16" y1="16" x2="16" y2="2"/><circle class="dot" cx="16" cy="16" r="1.6"/></svg>
+      </span>
+      <span class="brand-text">DPP<b>Radar</b></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#applies-to">Who it's for</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#categories">Categories</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#after-scan">After the scan</a>
+      <a href="#news">News</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-primary btn-sm">Talk to us</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-radar" aria-hidden="true">
+      <div class="radar-rings"></div>
+      <div class="radar-sweep"></div>
+      <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
+      <span class="blip b4"></span><span class="blip b5"></span>
+    </div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-reveal>
+        <span class="pulse-dot"></span> Independent tracker · not affiliated with the European Commission
+      </p>
+      <h1 data-reveal>Digital Product Passport,<br> everything worth tracking <span class="accent">on one screen.</span></h1>
+      <p class="hero-sub" data-reveal>
+        DPP Radar pulls together who the EU's Digital Product Passport applies to, where the rollout
+        actually stands today, which product categories come next, and what a real scan looks like —
+        so your team stops guessing from scattered PDFs.
+      </p>
+      <div class="hero-cta" data-reveal>
+        <a href="#timeline" class="btn btn-primary">See where we are now</a>
+        <a href="#contact" class="btn btn-ghost">Ask us a question</a>
+      </div>
+      <div class="hero-stats" data-reveal>
+        <div class="stat">
+          <span class="stat-value">19 Jul 2026</span>
+          <span class="stat-label">ESPR reaches full application</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">20 Jul 2026</span>
+          <span class="stat-label">EU DPP Registry went live</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">18 Feb 2027</span>
+          <span class="stat-label">First mandatory passport: batteries</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT APPLIES TO -->
+  <section id="applies-to" class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">01 — Scope</span>
+        <h2>Who this actually applies to</h2>
+        <p>The Digital Product Passport isn't only a "manufacturer problem." It touches every role that
+          touches the product, from raw material to end of life.</p>
+      </div>
+      <div class="grid audience-grid" data-reveal>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">🏭</div>
+          <h3>Manufacturers &amp; brand owners</h3>
+          <p>Must generate the product data, attach a data carrier (QR/NFC/RFID), and register the
+            passport in the EU DPP Registry before placing a product on the market.</p>
+        </article>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">📦</div>
+          <h3>Importers &amp; distributors</h3>
+          <p>Responsible for verifying a valid passport exists before goods manufactured outside the
+            EU enter the single market.</p>
+        </article>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">🛒</div>
+          <h3>Retailers &amp; marketplaces</h3>
+          <p>Need to surface the passport (physically or online) at the point of sale, wherever the
+            product is displayed to a shopper.</p>
+        </article>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">🔧</div>
+          <h3>Repairers &amp; recyclers</h3>
+          <p>Rely on passport data — materials, disassembly, spare parts — to repair, refurbish or
+            recover a product correctly at end of life.</p>
+        </article>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">🏛️</div>
+          <h3>Customs &amp; market surveillance</h3>
+          <p>Use the Registry to check compliance at the border and during market checks, without
+            opening a single box.</p>
+        </article>
+        <article class="card audience-card">
+          <div class="card-icon" aria-hidden="true">🙋</div>
+          <h3>Everyday consumers</h3>
+          <p>Scan the code on the product to see durability, repairability and environmental data
+            before — or after — they buy.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">02 — Rollout</span>
+        <h2>Where we are, and what's next</h2>
+        <p>A phased rollout under the Ecodesign for Sustainable Products Regulation (ESPR), 2024–2030.
+          The marker below sits on today's date.</p>
+      </div>
+
+      <div class="timeline-controls" data-reveal>
+        <button class="chip is-active" data-filter="all">All events</button>
+        <button class="chip" data-filter="done">Already in force</button>
+        <button class="chip" data-filter="next">Coming up</button>
+        <button class="chip" data-filter="later">Further out</button>
+      </div>
+
+      <div class="timeline-wrap" data-reveal>
+        <div class="timeline-track" id="timelineTrack" tabindex="0" role="list" aria-label="DPP regulatory timeline"></div>
+      </div>
+
+      <div class="timeline-detail" id="timelineDetail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories" class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">03 — Product scope</span>
+        <h2>Check the categories</h2>
+        <p>The ESPR Working Plan phases in product groups one at a time. Find yours and its current
+          status.</p>
+      </div>
+
+      <div class="timeline-controls" data-reveal>
+        <button class="chip is-active" data-cat-filter="all">All categories</button>
+        <button class="chip" data-cat-filter="Regulation in force">Regulation in force</button>
+        <button class="chip" data-cat-filter="Delegated act expected">Delegated act expected</button>
+        <button class="chip" data-cat-filter="Working plan / proposed">Working plan / proposed</button>
+      </div>
+
+      <div class="grid category-grid" id="categoryGrid" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">04 — Mechanics</span>
+        <h2>How a Digital Product Passport works</h2>
+        <p>One data set, one unique identifier, many doors in.</p>
+      </div>
+
+      <div class="schema-wrap" data-reveal>
+        <svg class="schema-svg" viewBox="0 0 1180 560" role="img" aria-labelledby="schemaTitle">
+          <title id="schemaTitle">Diagram: product data flows from the manufacturer through a data carrier and the EU registry to consumers, retailers, recyclers and authorities.</title>
+
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="var(--line)"/>
+            </marker>
+          </defs>
+
+          <!-- flow lines -->
+          <path class="flow-line" d="M 230 130 H 460" marker-end="url(#arrow)"/>
+          <path class="flow-line" d="M 690 130 H 900" marker-end="url(#arrow)"/>
+          <path class="flow-line flow-line--dashed" d="M 990 190 V 340"/>
+          <path class="flow-line flow-line--dashed" d="M 990 340 C 990 390, 500 400, 290 418" marker-end="url(#arrow)"/>
+          <path class="flow-line flow-line--dashed" d="M 990 340 C 990 400, 600 410, 500 418" marker-end="url(#arrow)"/>
+          <path class="flow-line flow-line--dashed" d="M 990 340 C 990 400, 780 410, 715 418" marker-end="url(#arrow)"/>
+          <path class="flow-line flow-line--dashed" d="M 990 340 V 418" marker-end="url(#arrow)"/>
+
+          <!-- node: manufacturer -->
+          <g class="node" transform="translate(80,80)">
+            <rect width="150" height="100" rx="14"/>
+            <text x="75" y="40" class="node-icon">🏭</text>
+            <text x="75" y="66" class="node-title">Manufacturer</text>
+            <text x="75" y="84" class="node-sub">compiles product data</text>
+          </g>
+
+          <!-- node: data carrier -->
+          <g class="node node--accent" transform="translate(460,70)">
+            <rect width="230" height="120" rx="14"/>
+            <text x="115" y="40" class="node-icon">▦</text>
+            <text x="115" y="66" class="node-title">Data carrier</text>
+            <text x="115" y="84" class="node-sub">QR code · NFC tag · RFID</text>
+            <text x="115" y="102" class="node-sub">attached to the physical product</text>
+          </g>
+
+          <!-- node: registry -->
+          <g class="node node--accent" transform="translate(900,60)">
+            <rect width="180" height="130" rx="14"/>
+            <text x="90" y="42" class="node-icon">🗄️</text>
+            <text x="90" y="68" class="node-title">EU DPP Registry</text>
+            <text x="90" y="86" class="node-sub">unique ID + metadata</text>
+            <text x="90" y="104" class="node-sub">live since Jul 2026</text>
+          </g>
+
+          <!-- access nodes (single row, fanned out from the registry) -->
+          <g class="node node--ghost" transform="translate(210,420)">
+            <rect width="160" height="90" rx="14"/>
+            <text x="80" y="34" class="node-icon">🛒</text>
+            <text x="80" y="58" class="node-title">Retailers</text>
+            <text x="80" y="76" class="node-sub">point of sale</text>
+          </g>
+          <g class="node node--ghost" transform="translate(420,420)">
+            <rect width="160" height="90" rx="14"/>
+            <text x="80" y="34" class="node-icon">🙋</text>
+            <text x="80" y="58" class="node-title">Consumer</text>
+            <text x="80" y="76" class="node-sub">scans on shelf</text>
+          </g>
+          <g class="node node--ghost" transform="translate(635,420)">
+            <rect width="170" height="90" rx="14"/>
+            <text x="85" y="34" class="node-icon">🏛️</text>
+            <text x="85" y="58" class="node-title">Authorities</text>
+            <text x="85" y="76" class="node-sub">customs &amp; market checks</text>
+          </g>
+          <g class="node node--ghost" transform="translate(850,420)">
+            <rect width="170" height="90" rx="14"/>
+            <text x="85" y="34" class="node-icon">🔧</text>
+            <text x="85" y="58" class="node-title">Repairers</text>
+            <text x="85" y="76" class="node-sub">&amp; recyclers</text>
+          </g>
+        </svg>
+      </div>
+
+      <p class="schema-caption" data-reveal>
+        The manufacturer's data + the physical data carrier both point to the same record in the
+        Registry. Anyone with the right access level — a shopper, an inspector, a recycler — reaches
+        it from a single scan.
+      </p>
+    </div>
+  </section>
+
+  <!-- AFTER THE SCAN -->
+  <section id="after-scan" class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">05 — Consumer view</span>
+        <h2>What you see after scanning the QR</h2>
+        <p>A simplified mock-up — real layouts vary by brand and product category.</p>
+      </div>
+
+      <div class="scan-demo" data-reveal>
+        <div class="scan-toggle">
+          <button class="chip is-active" data-product="jacket">Textile — jacket</button>
+          <button class="chip" data-product="battery">Battery pack</button>
+        </div>
+
+        <div class="phone-stage">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="phoneScreen"></div>
+          </div>
+          <div class="phone-callouts" id="phoneCallouts"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">06 — Official news</span>
+        <h2>Straight from the source</h2>
+        <p>Every item below links to an official European Commission page — nothing from blogs,
+          vendors or law firms. Checked manually, last verified 30 Jul 2026.</p>
+      </div>
+
+      <div class="grid news-grid" data-reveal>
+        <article class="card news-card">
+          <div class="news-date">20 Jul 2026</div>
+          <h3>The Digital Product Passport Registry is now live</h3>
+          <p>The Commission launched the EU DPP Registry together with a public testing environment,
+            letting economic operators register products via a secure UI or an API.</p>
+          <a class="news-link" href="https://single-market-economy.ec.europa.eu/news/digital-product-passport-registry-now-live-2026-07-20_en" target="_blank" rel="noopener">
+            single-market-economy.ec.europa.eu ↗
+          </a>
+        </article>
+        <article class="card news-card">
+          <div class="news-date">17 Jul 2026</div>
+          <h3>New Digital Product Passport web page launched</h3>
+          <p>DG GROW published a dedicated DPP hub consolidating guidance, scope and links for
+            businesses preparing to comply.</p>
+          <a class="news-link" href="https://single-market-economy.ec.europa.eu/news/new-digital-product-passport-dpp-web-page-launched-2026-07-17_en" target="_blank" rel="noopener">
+            single-market-economy.ec.europa.eu ↗
+          </a>
+        </article>
+        <article class="card news-card">
+          <div class="news-date">14 Jul 2026</div>
+          <h3>Harmonised standards for the DPP adopted</h3>
+          <p>A Commission Implementing Decision formally adopted harmonised standards underpinning the
+            DPP data and interoperability framework.</p>
+          <a class="news-link" href="https://green-forum.ec.europa.eu/implementing-ecodesign-sustainable-products-regulation_en" target="_blank" rel="noopener">
+            green-forum.ec.europa.eu ↗
+          </a>
+        </article>
+        <article class="card news-card">
+          <div class="news-date">27 May 2026</div>
+          <h3>Battery passport industry guidance session</h3>
+          <p>DG GROW ran an industry briefing on the battery passport — case studies and
+            implementation guidance ahead of the February 2027 deadline.</p>
+          <a class="news-link" href="https://single-market-economy.ec.europa.eu/events/digital-product-passport-batteries-2026-05-27_en" target="_blank" rel="noopener">
+            single-market-economy.ec.europa.eu ↗
+          </a>
+        </article>
+      </div>
+
+      <p class="news-footnote" data-reveal>
+        Want the full picture? Start at the Commission's own
+        <a href="https://single-market-economy.ec.europa.eu/single-market/digital-product-passport_en" target="_blank" rel="noopener">Digital Product Passport hub</a>
+        or the <a href="https://green-forum.ec.europa.eu/implementing-ecodesign-sustainable-products-regulation_en" target="_blank" rel="noopener">ESPR implementation page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap wrap-narrow">
+      <div class="section-head" data-reveal>
+        <span class="kicker">07 — FAQ</span>
+        <h2>Questions we keep getting</h2>
+      </div>
+
+      <div class="faq-list" data-reveal>
+        <details class="faq-item" open>
+          <summary>What exactly is a Digital Product Passport?</summary>
+          <div class="faq-body">A structured, machine-readable set of data about a specific product —
+            materials, origin, durability, repairability, carbon footprint, end-of-life instructions —
+            linked to a unique identifier and reachable via a data carrier such as a QR code.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is a DPP mandatory for my product right now?</summary>
+          <div class="faq-body">It depends on the category. Batteries above 2kWh become mandatory from
+            18 February 2027. Other categories (textiles, tyres, furniture, iron &amp; steel,
+            aluminium…) follow through 2027–2030 as their delegated acts are adopted. Check the
+            categories section above for the current status of your product group.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Who is legally responsible for creating it?</summary>
+          <div class="faq-body">The economic operator placing the product on the EU market —
+            typically the manufacturer or, for imported goods, the importer. Retailers and
+            distributors must ensure a valid passport is available, not create one themselves.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Does a DPP replace my existing product labels?</summary>
+          <div class="faq-body">No. It complements mandatory physical labelling (safety marks, care
+            labels, energy labels) rather than replacing it. Think of it as a deeper, always-current
+            layer sitting behind the label.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Where does the data actually live?</summary>
+          <div class="faq-body">The full data set can be hosted by the manufacturer or a service
+            provider; the EU DPP Registry stores the unique identifier and core metadata needed to
+            look up and verify the record, not necessarily every field.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if we don't comply in time?</summary>
+          <div class="faq-body">Non-compliant products can be blocked from entering the EU market or
+            withdrawn from sale by market surveillance authorities, alongside penalties set by each
+            member state. Enforcement generally begins 18 months after a category's delegated act
+            takes effect.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is this page an official EU source?</summary>
+          <div class="faq-body">No — DPP Radar is an independent aggregator built to make the public
+            information easier to scan. Always confirm requirements that affect compliance decisions
+            directly on ec.europa.eu.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-cta">
+    <div class="wrap wrap-narrow">
+      <div class="section-head" data-reveal>
+        <span class="kicker">08 — Get in touch</span>
+        <h2>Still not sure where your product stands?</h2>
+        <p>Send us a few details and we'll get back to you — this opens a message addressed to
+          <strong>maxim.rotaru@webamboos.com</strong>.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" data-reveal>
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Jane Doe">
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="jane@company.com">
+        </div>
+        <div class="form-row">
+          <label for="cf-company">Company <span class="opt">(optional)</span></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Company Ltd.">
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Your question</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="What would you like to know about DPP?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send to our team</button>
+        <p class="form-note" id="formNote">We'll open your email app with everything pre-filled — nothing is sent from this page directly.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">DPP<b>Radar</b></span>
+      <p>An independent aggregator of public Digital Product Passport information. Not affiliated
+        with, endorsed by, or an official channel of the European Commission.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <h4>Explore</h4>
+        <a href="#applies-to">Who it's for</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#categories">Categories</a>
+        <a href="#how-it-works">How it works</a>
+      </div>
+      <div>
+        <h4>More</h4>
+        <a href="#after-scan">After the scan</a>
+        <a href="#news">News</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Official source</h4>
+        <a href="https://single-market-economy.ec.europa.eu/single-market/digital-product-passport_en" target="_blank" rel="noopener">EU DPP hub ↗</a>
+        <a href="https://green-forum.ec.europa.eu/implementing-ecodesign-sustainable-products-regulation_en" target="_blank" rel="noopener">ESPR overview ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 DPP Radar. Content last checked 30 Jul 2026.</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
