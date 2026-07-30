@@ -347,11 +347,16 @@
   });
 
   /* ---------------------------------------------------------------------
-   * Contact form -> mailto (fully static, no backend)
+   * Contact form -> real email delivery (fully static, no backend of our
+   * own: submissions are relayed by FormSubmit, https://formsubmit.co).
+   * The first submission ever sent to a given address requires a one-time
+   * "activate this form" click from that inbox; every submission after
+   * that is delivered silently.
    * ------------------------------------------------------------------- */
   var form = document.getElementById("contactForm");
   var formNote = document.getElementById("formNote");
   var CONTACT_EMAIL = "maxim.rotaru@webamboos.com";
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/" + CONTACT_EMAIL;
 
   if (form) {
     form.addEventListener("submit", function (ev) {
@@ -361,30 +366,50 @@
       var company = form.company.value.trim();
       var message = form.message.value.trim();
 
+      formNote.classList.remove("is-error", "is-success");
+
       if (!name || !email || !message) {
         formNote.textContent = "Please fill in your name, email and question.";
         formNote.classList.add("is-error");
         return;
       }
 
-      var subject = "DPP Radar enquiry from " + name;
-      var bodyLines = [
-        "Name: " + name,
-        "Email: " + email,
-        company ? "Company: " + company : null,
-        "",
-        message
-      ].filter(function (l) { return l !== null; });
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      formNote.textContent = "Sending…";
 
-      var mailto =
-        "mailto:" + CONTACT_EMAIL +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(bodyLines.join("\n"));
-
-      window.location.href = mailto;
-
-      formNote.classList.remove("is-error");
-      formNote.textContent = "Opening your email app, addressed to " + CONTACT_EMAIL + " …";
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          company: company || "(not provided)",
+          message: message,
+          _subject: "DPP Radar enquiry from " + name,
+          _template: "table",
+          _captcha: "false"
+        })
+      })
+        .then(function (res) {
+          if (!res.ok) { throw new Error("Request failed"); }
+          return res.json();
+        })
+        .then(function () {
+          formNote.textContent = "Thanks — your message has been sent. We'll get back to you soon.";
+          formNote.classList.add("is-success");
+          form.reset();
+        })
+        .catch(function () {
+          formNote.textContent = "Something went wrong sending your message — please email us directly at " + CONTACT_EMAIL + ".";
+          formNote.classList.add("is-error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
     });
   }
 })();

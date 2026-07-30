@@ -8,7 +8,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="DPP Radar">
 <link rel="canonical" href="https://maximrotaruwbs.github.io/dpp-radar/">
-<meta name="theme-color" content="#060a0d">
+<meta name="theme-color" content="#003399">
 
 <!-- Open Graph / Facebook, LinkedIn -->
 <meta property="og:type" content="website">
@@ -28,7 +28,7 @@
 <meta name="twitter:description" content="Independent tracker for the EU Digital Product Passport: scope, rollout timeline, product categories, how it works, and what a QR scan shows.">
 <meta name="twitter:image" content="https://maximrotaruwbs.github.io/dpp-radar/assets/img/og-image.png">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23070c10'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2352e8a4' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2352e8a4' stroke-width='1' opacity='.6'/%3E%3Cline x1='16' y1='16' x2='27' y2='9' stroke='%2352e8a4' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%2352e8a4'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23003399'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23ffffff' stroke-width='1' opacity='.85'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23ffffff' stroke-width='1' opacity='.6'/%3E%3Cline x1='16' y1='16' x2='27' y2='9' stroke='%23ffcc00' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%23ffcc00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -119,7 +119,23 @@
 </head>
 <body>
 
-<div class="scanlines" aria-hidden="true"></div>
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="euStars" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="15" fill="#003399"/>
+    <circle cx="16" cy="6" r="1.35" fill="#FFCC00"/>
+    <circle cx="21" cy="7.34" r="1.35" fill="#FFCC00"/>
+    <circle cx="24.66" cy="11" r="1.35" fill="#FFCC00"/>
+    <circle cx="26" cy="16" r="1.35" fill="#FFCC00"/>
+    <circle cx="24.66" cy="21" r="1.35" fill="#FFCC00"/>
+    <circle cx="21" cy="24.66" r="1.35" fill="#FFCC00"/>
+    <circle cx="16" cy="26" r="1.35" fill="#FFCC00"/>
+    <circle cx="11" cy="24.66" r="1.35" fill="#FFCC00"/>
+    <circle cx="7.34" cy="21" r="1.35" fill="#FFCC00"/>
+    <circle cx="6" cy="16" r="1.35" fill="#FFCC00"/>
+    <circle cx="7.34" cy="11" r="1.35" fill="#FFCC00"/>
+    <circle cx="11" cy="7.34" r="1.35" fill="#FFCC00"/>
+  </symbol>
+</svg>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
@@ -134,7 +150,7 @@
       <a href="#timeline">Timeline</a>
       <a href="#categories">Categories</a>
       <a href="#how-it-works">How it works</a>
-      <a href="#after-scan">After the scan</a>
+      <a href="#after-scan">DPP Template</a>
       <a href="#news">News</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -159,7 +175,8 @@
     </div>
     <div class="wrap hero-inner">
       <p class="eyebrow" data-reveal>
-        <span class="pulse-dot"></span> Independent tracker · not affiliated with the European Commission
+        <svg class="eu-badge" aria-hidden="true"><use href="#euStars"></use></svg>
+        <span class="pulse-dot"></span> Sourced from official EU institutions · independent, not affiliated with the European Commission
       </p>
       <h1 data-reveal>Digital Product Passport,<br> everything worth tracking <span class="accent">on one screen.</span></h1>
       <p class="hero-sub" data-reveal>
@@ -242,7 +259,7 @@
   <section id="timeline" class="section section-alt">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="kicker">02 — Rollout</span>
+        <span class="kicker">02 — Rollout <span class="eu-chip"><svg class="eu-badge" aria-hidden="true"><use href="#euStars"></use></svg> EU source</span></span>
         <h2>Where we are, and what's next</h2>
         <p>A phased rollout under the Ecodesign for Sustainable Products Regulation (ESPR), 2024–2030.
           The marker below sits on today's date.</p>
@@ -321,7 +338,7 @@
   <section id="categories" class="section">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="kicker">03 — Product scope</span>
+        <span class="kicker">03 — Product scope <span class="eu-chip"><svg class="eu-badge" aria-hidden="true"><use href="#euStars"></use></svg> EU source</span></span>
         <h2>Check the categories</h2>
         <p>The ESPR Working Plan phases in product groups one at a time. Find yours and its current
           status.</p>
@@ -538,7 +555,7 @@
   <section id="news" class="section section-alt">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="kicker">06 — Official news</span>
+        <span class="kicker">06 — Official news <span class="eu-chip"><svg class="eu-badge" aria-hidden="true"><use href="#euStars"></use></svg> EU-only</span></span>
         <h2>Straight from the source</h2>
         <p>Every item below links to an official European Commission page — nothing from blogs,
           vendors or law firms. Checked manually, last verified 30 Jul 2026.</p>
@@ -654,7 +671,7 @@
       <div class="section-head" data-reveal>
         <span class="kicker">08 — Get in touch</span>
         <h2>Still not sure where your product stands?</h2>
-        <p>Send us a few details and we'll get back to you — this opens a message addressed to
+        <p>Send us a few details and we'll get back to you — your message goes straight to
           <strong>maxim.rotaru@webamboos.com</strong>.</p>
       </div>
 
@@ -676,7 +693,7 @@
           <textarea id="cf-message" name="message" rows="5" required placeholder="What would you like to know about DPP?"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Send to our team</button>
-        <p class="form-note" id="formNote">We'll open your email app with everything pre-filled — nothing is sent from this page directly.</p>
+        <p class="form-note" id="formNote" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -700,13 +717,13 @@
       </div>
       <div>
         <h4>More</h4>
-        <a href="#after-scan">After the scan</a>
+        <a href="#after-scan">DPP Template</a>
         <a href="#news">News</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <div>
-        <h4>Official source</h4>
+        <h4><svg class="eu-badge" aria-hidden="true"><use href="#euStars"></use></svg> Official source</h4>
         <a href="https://single-market-economy.ec.europa.eu/single-market/digital-product-passport_en" target="_blank" rel="noopener">EU DPP hub ↗</a>
         <a href="https://green-forum.ec.europa.eu/implementing-ecodesign-sustainable-products-regulation_en" target="_blank" rel="noopener">ESPR overview ↗</a>
       </div>
