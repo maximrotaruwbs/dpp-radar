@@ -41,7 +41,7 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Timeline — data reflects the ESPR / DPP rollout (dates are UTC, EU)
+   * Timeline - data reflects the ESPR / DPP rollout (dates are UTC, EU)
    * Status is computed live against the visitor's clock, so the page
    * keeps telling the right "today / next" story as time passes.
    * ------------------------------------------------------------------- */
@@ -70,13 +70,13 @@
       date: new Date("2026-12-31"),
       title: "Iron & Steel delegated act (indicative)",
       tag: "Delegated act",
-      detail: "Iron and steel — an intermediate product feeding many finished goods — is first in line for a delegated act, expected before the end of 2026."
+      detail: "Iron and steel - an intermediate product feeding many finished goods - is first in line for a delegated act, expected before the end of 2026."
     },
     {
       date: new Date("2027-02-18"),
       title: "Battery passport becomes mandatory",
       tag: "Enforcement",
-      detail: "EV, industrial and LMT batteries above 2kWh must carry a QR-linked digital battery passport under the Battery Regulation — the first DPP obligation to actually bite."
+      detail: "EV, industrial and LMT batteries above 2kWh must carry a QR-linked digital battery passport under the Battery Regulation - the first DPP obligation to actually bite."
     },
     {
       date: new Date("2027-12-31"),
@@ -126,6 +126,7 @@
   var track = document.getElementById("timelineTrack");
   var detailBox = document.getElementById("timelineDetail");
 
+  if (track && detailBox) {
   function renderTimeline(filter) {
     track.innerHTML = "";
 
@@ -168,8 +169,9 @@
         track.querySelectorAll(".tl-node").forEach(function (n) { n.classList.remove("is-active"); });
         node.classList.add("is-active");
         var statusLabel = e.status === "done" ? "Already in force" : (e.status === "next" ? "Coming up next" : "Further out");
+        detailBox.className = "timeline-detail is-" + e.status;
         detailBox.innerHTML =
-          '<b>' + fmtDate(e.date) + ' — ' + e.title + '</b> · ' + statusLabel + '<br>' + e.detail;
+          '<b>' + fmtDate(e.date) + ' - ' + e.title + '</b> · ' + statusLabel + '<br>' + e.detail;
       }
 
       node.addEventListener("click", activate);
@@ -184,7 +186,8 @@
   renderTimeline("all");
   var nextEl = timelineData.find(function (e) { return e.status === "next"; });
   if (nextEl) {
-    detailBox.innerHTML = '<b>' + fmtDate(nextEl.date) + ' — ' + nextEl.title + '</b> · Coming up next<br>' + nextEl.detail;
+    detailBox.className = "timeline-detail is-next";
+    detailBox.innerHTML = '<b>' + fmtDate(nextEl.date) + ' - ' + nextEl.title + '</b> · Coming up next<br>' + nextEl.detail;
   }
 
   document.querySelectorAll("[data-filter]").forEach(function (btn) {
@@ -194,33 +197,34 @@
       renderTimeline(btn.getAttribute("data-filter"));
     });
   });
+  } // end timeline guard
 
   /* ---------------------------------------------------------------------
    * Categories
    * ------------------------------------------------------------------- */
   var categories = [
-    { icon: "🔋", name: "Batteries", status: "force", statusLabel: "Regulation in force",
+    { icon: "🔋", name: "Batteries", slug: "batteries", status: "force", statusLabel: "Regulation in force",
       desc: "EV, industrial and LMT batteries above 2kWh need a QR-linked battery passport under the Battery Regulation.",
       date: "Mandatory from 18 Feb 2027" },
-    { icon: "🔩", name: "Iron & Steel", status: "pending", statusLabel: "Delegated act expected",
+    { icon: "🔩", name: "Iron & Steel", slug: "iron-steel", status: "pending", statusLabel: "Delegated act expected",
       desc: "An intermediate product prioritised first, since finished-goods passports downstream depend on its data.",
       date: "Delegated act expected 2026" },
-    { icon: "👕", name: "Textiles & Apparel", status: "pending", statusLabel: "Delegated act expected",
+    { icon: "👕", name: "Textiles & Apparel", slug: "textiles-apparel", status: "pending", statusLabel: "Delegated act expected",
       desc: "Clothing and footwear, one of the six product groups named in the first ESPR Working Plan.",
       date: "Delegated act expected 2027" },
-    { icon: "🛞", name: "Tyres", status: "pending", statusLabel: "Delegated act expected",
+    { icon: "🛞", name: "Tyres", slug: "tyres", status: "pending", statusLabel: "Delegated act expected",
       desc: "Passenger and commercial vehicle tyres, covering durability, abrasion and material content.",
       date: "Delegated act expected 2027" },
-    { icon: "⛓️", name: "Aluminium", status: "pending", statusLabel: "Delegated act expected",
+    { icon: "⛓️", name: "Aluminium", slug: "aluminium", status: "pending", statusLabel: "Delegated act expected",
       desc: "Second intermediate product in scope, feeding data into finished-goods passports.",
       date: "Delegated act expected 2027" },
-    { icon: "🛋️", name: "Furniture", status: "pending", statusLabel: "Delegated act expected",
+    { icon: "🛋️", name: "Furniture", slug: "furniture", status: "pending", statusLabel: "Delegated act expected",
       desc: "Domestic and office furniture, part of the first ESPR Working Plan.",
       date: "Delegated act expected 2028" },
-    { icon: "🛏️", name: "Mattresses", status: "proposed", statusLabel: "Working plan / proposed",
+    { icon: "🛏️", name: "Mattresses", slug: "mattresses", status: "proposed", statusLabel: "Working plan / proposed",
       desc: "Closes out the six product groups named in the first ESPR Working Plan, furthest out on the timeline.",
       date: "Delegated act expected 2029" },
-    { icon: "💻", name: "Electronics & ICT", status: "proposed", statusLabel: "Working plan / proposed",
+    { icon: "💻", name: "Electronics & ICT", slug: "electronics-ict", status: "proposed", statusLabel: "Working plan / proposed",
       desc: "Flagged for a future working-plan round, alongside recycled-content rules for electricals.",
       date: "Beyond the current Working Plan" }
   ];
@@ -228,17 +232,20 @@
   var statusClass = { force: "force", pending: "pending", proposed: "proposed" };
   var catGrid = document.getElementById("categoryGrid");
 
+  if (catGrid) {
   function renderCategories(filter) {
     catGrid.innerHTML = "";
     categories.forEach(function (c) {
       if (filter !== "all" && c.statusLabel !== filter) return;
-      var card = document.createElement("article");
+      var card = document.createElement("a");
       card.className = "card cat-card";
+      card.href = "categories/" + c.slug + ".html";
       card.innerHTML =
         '<div class="cat-top"><span class="cat-icon">' + c.icon + '</span>' +
         '<span class="status-pill ' + statusClass[c.status] + '">' + c.statusLabel + '</span></div>' +
         '<h3>' + c.name + '</h3><p>' + c.desc + '</p>' +
-        '<span class="cat-date">' + c.date + '</span>';
+        '<span class="cat-date">' + c.date + '</span>' +
+        '<span class="cat-arrow">View category page →</span>';
       catGrid.appendChild(card);
     });
   }
@@ -252,6 +259,7 @@
       renderCategories(btn.getAttribute("data-cat-filter"));
     });
   });
+  } // end categories guard
 
   /* ---------------------------------------------------------------------
    * "After the scan" phone mock-up
@@ -302,10 +310,11 @@
   var phoneScreen = document.getElementById("phoneScreen");
   var phoneCallouts = document.getElementById("phoneCallouts");
 
+  if (phoneScreen && phoneCallouts) {
   var calloutCopy = [
-    "The scan resolves to a unique product ID looked up in the EU DPP Registry — not a generic marketing page.",
+    "The scan resolves to a unique product ID looked up in the EU DPP Registry - not a generic marketing page.",
     "Data is grouped by what the viewer needs: identity, materials, footprint, then care & end-of-life.",
-    "Access can be tiered — a shopper sees a summary, while a recycler or auditor can unlock deeper technical data."
+    "Access can be tiered - a shopper sees a summary, while a recycler or auditor can unlock deeper technical data."
   ];
 
   function renderProduct(key) {
@@ -345,6 +354,7 @@
       renderProduct(btn.getAttribute("data-product"));
     });
   });
+  } // end phone-mock guard
 
   /* ---------------------------------------------------------------------
    * Contact form -> real email delivery (fully static, no backend of our
@@ -399,12 +409,12 @@
           return res.json();
         })
         .then(function () {
-          formNote.textContent = "Thanks — your message has been sent. We'll get back to you soon.";
+          formNote.textContent = "Thanks - your message has been sent. We'll get back to you soon.";
           formNote.classList.add("is-success");
           form.reset();
         })
         .catch(function () {
-          formNote.textContent = "Something went wrong sending your message — please email us directly at " + CONTACT_EMAIL + ".";
+          formNote.textContent = "Something went wrong sending your message - please email us directly at " + CONTACT_EMAIL + ".";
           formNote.classList.add("is-error");
         })
         .finally(function () {
