@@ -27,7 +27,7 @@ var DPP_TOOLS = [
     title: "DPP Readiness Scorecard",
     blurb: "Answer ~12 questions, get a 0-100 readiness score and a personalised report.",
     getLine: "You'll get: a 0-100 readiness score, a breakdown by category, and a personalised action list.",
-    status: "soon",
+    status: "live",
     type: "interactive",
     icon: "📊"
   },
@@ -36,7 +36,7 @@ var DPP_TOOLS = [
     title: "DPP Data Organizer",
     blurb: "For your category, get every required data field and tag each as 'in ERP', 'ask supplier', or 'missing'.",
     getLine: "You'll get: every required data field for your category, tagged and exportable to PDF/CSV.",
-    status: "soon",
+    status: "live",
     type: "interactive",
     icon: "🗂️"
   },

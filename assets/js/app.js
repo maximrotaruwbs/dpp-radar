@@ -303,17 +303,23 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Generic "notify me" capture form, used on tool scaffold pages.
+   * Generic "notify me" capture form, used on tool scaffold pages and on
+   * dynamically-rendered results (e.g. the scorecard's follow-up form).
    * Same delivery mechanism as the main contact form (FormSubmit AJAX) -
    * no email is required to use any "interactive" tool; this only ever
-   * appears as an optional launch notice or on "capture"-type tools.
+   * appears as an optional launch notice, an optional follow-up, or on
+   * "capture"-type tools.
    * ------------------------------------------------------------------- */
-  document.querySelectorAll(".notify-form").forEach(function (form) {
+  function attachNotifyForm(form) {
+    if (form.dataset.notifyBound) { return; }
+    form.dataset.notifyBound = "true";
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var note = form.querySelector(".notify-note");
       var email = form.email.value.trim();
       var toolName = form.getAttribute("data-tool") || "a DPP Radar tool";
+      var successMsg = form.getAttribute("data-success") || "Thanks - we'll email you as soon as this is ready.";
 
       note.classList.remove("is-error", "is-success");
 
@@ -346,7 +352,7 @@
           return res.json();
         })
         .then(function () {
-          note.textContent = "Thanks - we'll email you as soon as this is ready.";
+          note.textContent = successMsg;
           note.classList.add("is-success");
           form.reset();
         })
@@ -358,7 +364,10 @@
           submitBtn.disabled = false;
         });
     });
-  });
+  }
+
+  window.attachNotifyForm = attachNotifyForm;
+  document.querySelectorAll(".notify-form").forEach(attachNotifyForm);
 
   /* ---------------------------------------------------------------------
    * "After the scan" phone mock-up
