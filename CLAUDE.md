@@ -19,7 +19,7 @@ contact form.
 - `robots.txt`, `sitemap.xml` — crawler access and discovery
 - `.github/workflows/deploy-pages.yml` — deploys to GitHub Pages on every push to `main`
 
-Live at: https://maximrotaruwbs.github.io/dpp-radar/
+Live at: https://dppradar.eu/
 
 ## SEO/GEO is part of every change — not a separate task
 

@@ -38,4 +38,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://maximrotaruwbs.github.io/dpp-radar/sitemap.xml
+Sitemap: https://dppradar.eu/sitemap.xml
