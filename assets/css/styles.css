@@ -709,8 +709,21 @@ button{ font-family:inherit; }
 }
 .tool-card:hover .tool-arrow{ transform:translateX(4px); }
 
-.status-pill.live{ background:var(--accent-soft); color:var(--accent); }
+.status-pill.live{
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(10,122,61,0.12); color:#0a7a3d;
+}
+.status-pill.live::before{
+  content:""; width:6px; height:6px; border-radius:50%; background:#0a7a3d;
+  box-shadow:0 0 0 0 rgba(10,122,61,.6); animation:pulseLive 2s infinite;
+}
 .status-pill.soon{ background:rgba(16,32,58,0.06); color:var(--text-dim); }
+
+@keyframes pulseLive{
+  0%{ box-shadow:0 0 0 0 rgba(10,122,61,.55); }
+  70%{ box-shadow:0 0 0 7px rgba(10,122,61,0); }
+  100%{ box-shadow:0 0 0 0 rgba(10,122,61,0); }
+}
 
 .tools-cta{ margin-top:40px; text-align:center; }
 
@@ -895,11 +908,46 @@ button{ font-family:inherit; }
   .organizer-fields{ padding:8px 18px; }
 }
 
+/* ==========================================================================
+   DPP Tools & Software Directory
+   ========================================================================== */
+
+.directory-disclaimer{
+  background:rgba(16,32,58,0.04); border:1px solid var(--border); border-radius:12px;
+  padding:14px 18px; font-size:.86rem; color:var(--text-dim); margin-bottom:28px;
+}
+.directory-toolbar{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+.directory-search{ margin-bottom:28px; max-width:360px; }
+.directory-search input{
+  width:100%; background:rgba(16,32,58,0.035); border:1px solid var(--border); border-radius:10px;
+  padding:12px 14px; color:var(--text); font-family:inherit; font-size:.92rem;
+}
+.directory-search input:focus{ outline:none; border-color:var(--accent); }
+
+.directory-list{ display:flex; flex-direction:column; gap:14px; }
+.directory-entry{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:20px 24px; box-shadow:var(--shadow-card);
+}
+.directory-entry-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.directory-entry-name{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:1.05rem; }
+.directory-entry-tags{ display:flex; gap:6px; flex-wrap:wrap; }
+.directory-tag{
+  font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  padding:3px 10px; border-radius:999px; background:rgba(16,32,58,0.06); color:var(--text-dim);
+  white-space:nowrap;
+}
+.directory-entry-desc{ color:var(--text-dim); font-size:.92rem; margin-top:10px; }
+.directory-entry-link{ display:inline-block; margin-top:12px; font-weight:600; color:var(--accent); font-size:.88rem; }
+.directory-empty{ display:none; text-align:center; color:var(--text-dim); padding:40px 0; }
+
 @media print{
   .site-header, .site-footer, .tool-back, .quiz-nav, .organizer-export-row,
-  .quiz-export-row, .notify-form, .tool-detail-cta, .scanlines, .tool-placeholder{ display:none !important; }
+  .quiz-export-row, .notify-form, .tool-detail-cta, .scanlines, .tool-placeholder,
+  .directory-toolbar, .directory-search{ display:none !important; }
   body{ background:#fff; }
   .tool-detail-page{ padding-top:20px; }
   .organizer-fields, .quiz-card{ box-shadow:none; border:1px solid #ccc; }
+  .directory-entry{ box-shadow:none; border:1px solid #ccc; }
 }
 

@@ -80,6 +80,17 @@ as part of the definition of done for any content change. Concretely, on every c
    only "capture"-type tools (template packs, alerts) make email the point of the
    interaction.
 
+10. **Tool cards are ordered live-first.** `DPP_TOOLS` (and its mirrored static markup
+    in `index.html` / `tools/index.html`) keeps every `status: "live"` tool before all
+    `status: "soon"` tools. When a tool goes live, move its entry — and its static
+    card — up into the live group rather than leaving it in its original position.
+
+11. **Directory entries need periodic re-verification.** `tools/directory.html`'s
+    vendor/standard/project entries are curated third-party information, not official
+    EU sources — re-check names, URLs and descriptions periodically (same spirit as
+    point 5), keep the disclaimer's "last checked" date current, and never accept paid
+    placement or list a ranking.
+
 ## Deployment
 
 Push to `main` (via a merged PR) to trigger `.github/workflows/deploy-pages.yml`,
