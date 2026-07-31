@@ -41,6 +41,25 @@ var DPP_TOOLS = [
     icon: "🗂️"
   },
   {
+    slug: "dpp-demo",
+    title: "Interactive DPP Demo",
+    blurb: "See a real Digital Product Passport: consumer vs authority views, live tamper check.",
+    getLine: "You'll get: a live walkthrough of a real passport - consumer view, authority view, and a tamper check.",
+    status: "live",
+    type: "interactive",
+    icon: "📱",
+    externalAnchor: "index.html#after-scan"
+  },
+  {
+    slug: "directory",
+    title: "DPP Tools & Software Directory",
+    blurb: "A filterable directory of DPP issuers, wallet providers, data carriers and open-source projects.",
+    getLine: "You'll get: a filterable list of DPP issuers, wallet providers, data carriers and open-source projects.",
+    status: "live",
+    type: "interactive",
+    icon: "🧭"
+  },
+  {
     slug: "time-estimator",
     title: "Time-to-DPP Estimator",
     blurb: "Enter category, SKU count and supplier count to estimate months-to-ready by phase.",
@@ -57,25 +76,6 @@ var DPP_TOOLS = [
     status: "soon",
     type: "interactive",
     icon: "🧾"
-  },
-  {
-    slug: "dpp-demo",
-    title: "Interactive DPP Demo",
-    blurb: "See a real Digital Product Passport: consumer vs authority views, live tamper check.",
-    getLine: "You'll get: a live walkthrough of a real passport - consumer view, authority view, and a tamper check.",
-    status: "live",
-    type: "interactive",
-    icon: "📱",
-    externalAnchor: "index.html#after-scan"
-  },
-  {
-    slug: "directory",
-    title: "DPP Tools & Software Directory",
-    blurb: "A filterable directory of DPP issuers, wallet providers, data carriers and open-source projects.",
-    getLine: "You'll get: a filterable list of DPP issuers, wallet providers, data carriers and open-source projects.",
-    status: "soon",
-    type: "interactive",
-    icon: "🧭"
   },
   {
     slug: "supplier-templates",
