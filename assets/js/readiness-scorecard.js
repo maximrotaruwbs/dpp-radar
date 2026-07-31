@@ -284,6 +284,10 @@
           fields[c] = Math.round((byCategory[c].points / byCategory[c].max) * 100) + "%";
         });
         fields["Top priorities"] = sortedCats.slice(0, 3).join("; ");
+        QUESTIONS.forEach(function (q, i) {
+          var key = "Q" + (i + 1) + ". " + q.text;
+          fields[key] = answers[i] === null ? "(skipped)" : q.options[answers[i]].label;
+        });
         return fields;
       };
       if (window.attachNotifyForm) { window.attachNotifyForm(form); }
