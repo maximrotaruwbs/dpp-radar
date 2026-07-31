@@ -248,6 +248,10 @@
       '</div>' +
       '<h2>Your action list</h2>' +
       '<ul class="quiz-actions-list">' + actionItems + '</ul>' +
+      '<div class="quiz-export-row">' +
+        '<button type="button" class="btn btn-primary" data-export-csv>Download CSV</button>' +
+        '<button type="button" class="btn btn-ghost" data-export-print>Print / Save as PDF</button>' +
+      '</div>' +
       '<h2>Want a hand with any of this?</h2>' +
       '<form class="notify-form" data-tool="Readiness Scorecard follow-up" data-success="Thanks - we\'ve passed your results to the team, they\'ll follow up if useful.">' +
         '<div class="form-row">' +
@@ -269,6 +273,41 @@
       resultsView.innerHTML = "";
       quizView.style.display = "block";
       renderQuestion();
+    });
+
+    // CSV export - pure client-side Blob download, no email, no server.
+    resultsView.querySelector("[data-export-csv]").addEventListener("click", function () {
+      var rows = [["Question", "Answer"]];
+      QUESTIONS.forEach(function (q, i) {
+        rows.push([q.text, answers[i] === null ? "(skipped)" : q.options[answers[i]].label]);
+      });
+      rows.push(["", ""]);
+      rows.push(["Category", "Score"]);
+      CATEGORIES.forEach(function (c) {
+        rows.push([c, Math.round((byCategory[c].points / byCategory[c].max) * 100) + "%"]);
+      });
+      rows.push(["Overall readiness score", overall + " / 100 (" + tag + ")"]);
+
+      var csv = rows.map(function (r) {
+        return r.map(function (cell) { return '"' + String(cell).replace(/"/g, '""') + '"'; }).join(",");
+      }).join("\r\n");
+
+      var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "dpp-readiness-scorecard-results.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // "Export to PDF" - the browser's own print dialog, with a print
+    // stylesheet that hides everything but the results (same pattern as
+    // the Data Organizer's export).
+    resultsView.querySelector("[data-export-print]").addEventListener("click", function () {
+      window.print();
     });
 
     // the notify-form inside resultsView was just inserted after app.js's
