@@ -185,22 +185,15 @@
     notifyForm.getExtraFields = function () {
       if (!currentSlug) { return { "Category": "(none selected)" }; }
       var cat = CATEGORY_FIELDS[currentSlug];
-      var counts = { "in-erp": 0, "ask-supplier": 0, missing: 0, untagged: 0 };
-      cat.fields.forEach(function (f) {
-        var t = currentTags[f];
-        if (t && counts.hasOwnProperty(t)) { counts[t] += 1; } else { counts.untagged += 1; }
-      });
-      var fields = {
-        "Category": cat.label,
-        "In ERP": String(counts["in-erp"]),
-        "Ask supplier": String(counts["ask-supplier"]),
-        "Missing": String(counts.missing),
-        "Untagged": String(counts.untagged)
-      };
+      var inErpCount = 0;
+      var fields = { "Category": cat.label };
       cat.fields.forEach(function (f, i) {
         var t = currentTags[f];
-        fields["Field " + (i + 1) + ". " + f] = TAG_LABELS[t] || "Untagged";
+        if (t === "in-erp") { inErpCount += 1; }
+        fields["Question " + (i + 1) + ": " + f] = TAG_LABELS[t] || "Untagged";
       });
+      var pct = Math.round((inErpCount / cat.fields.length) * 100);
+      fields["Final score"] = inErpCount + " / " + cat.fields.length + " fields confirmed in ERP (" + pct + "%)";
       return fields;
     };
   }
