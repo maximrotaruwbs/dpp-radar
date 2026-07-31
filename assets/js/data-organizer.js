@@ -186,23 +186,22 @@
       if (!currentSlug) { return { "Category": "(none selected)" }; }
       var cat = CATEGORY_FIELDS[currentSlug];
       var counts = { "in-erp": 0, "ask-supplier": 0, missing: 0, untagged: 0 };
-      var askSupplierFields = [];
-      var missingFields = [];
       cat.fields.forEach(function (f) {
         var t = currentTags[f];
         if (t && counts.hasOwnProperty(t)) { counts[t] += 1; } else { counts.untagged += 1; }
-        if (t === "ask-supplier") { askSupplierFields.push(f); }
-        if (t === "missing") { missingFields.push(f); }
       });
-      return {
+      var fields = {
         "Category": cat.label,
         "In ERP": String(counts["in-erp"]),
         "Ask supplier": String(counts["ask-supplier"]),
         "Missing": String(counts.missing),
-        "Untagged": String(counts.untagged),
-        "Fields to ask supplier": askSupplierFields.join("; ") || "(none)",
-        "Fields missing": missingFields.join("; ") || "(none)"
+        "Untagged": String(counts.untagged)
       };
+      cat.fields.forEach(function (f, i) {
+        var t = currentTags[f];
+        fields["Field " + (i + 1) + ". " + f] = TAG_LABELS[t] || "Untagged";
+      });
+      return fields;
     };
   }
 
