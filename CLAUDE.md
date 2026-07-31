@@ -5,14 +5,21 @@ EU Digital Product Passport (DPP): scope, ESPR rollout timeline, product categor
 mechanics diagram, a post-scan consumer preview, official-source news, FAQ, and a
 contact form.
 
-- `index.html` — all page content and sections
-- `assets/css/styles.css` — styling (dark "radar/HUD" visual identity)
-- `assets/js/app.js` — timeline/category/phone-mock rendering, filters, contact form
+- `index.html` — all homepage content and sections
+- `categories/*.html` — one detail page per ESPR product category, linked from the
+  homepage category cards
+- `tools/index.html` + `tools/*.html` — the Free Tools hub and one scaffold/detail page
+  per tool, linked from the homepage tools section
+- `assets/css/styles.css` — styling (bright, EU-blue-and-gold visual identity)
+- `assets/js/app.js` — timeline/category/phone-mock/tools rendering, filters, contact
+  and notify forms
+- `assets/js/tools-data.js` — single source of truth for the Free Tools feature (see
+  point 9 below)
 - `assets/img/og-image.png` — social preview image
 - `robots.txt`, `sitemap.xml` — crawler access and discovery
 - `.github/workflows/deploy-pages.yml` — deploys to GitHub Pages on every push to `main`
 
-Live at: https://maximrotaruwbs.github.io/dpp-radar/
+Live at: https://dppradar.eu/
 
 ## SEO/GEO is part of every change — not a separate task
 
@@ -62,6 +69,16 @@ as part of the definition of done for any content change. Concretely, on every c
 8. **Validate before committing.** Confirm both `<script type="application/ld+json">`
    blocks still parse as valid JSON (e.g. `python3 -c "import json,re; ..."` extracting
    and `json.loads`-ing each block) after any edit near them.
+
+9. **Tools data lives in one place.** `assets/js/tools-data.js` (the `DPP_TOOLS` array)
+   is the single source of truth for the Free Tools feature — it drives the homepage
+   tools section, the `/tools` hub page, and every scaffold page's "browse other tools"
+   links. Add a new tool there (title, slug, blurb, status, type, icon), then add its
+   `tools/<slug>.html` page and its static card markup on the homepage + hub (mirroring
+   an existing entry) — don't hand-roll a one-off card that isn't backed by the data
+   array. Interactive tools must never gate their core value behind an email address;
+   only "capture"-type tools (template packs, alerts) make email the point of the
+   interaction.
 
 ## Deployment
 
