@@ -274,7 +274,20 @@
     // the notify-form inside resultsView was just inserted after app.js's
     // generic listener setup ran, so it needs its own binding here
     var form = resultsView.querySelector(".notify-form");
-    if (form && window.attachNotifyForm) { window.attachNotifyForm(form); }
+    if (form) {
+      form.getExtraFields = function () {
+        var fields = {
+          "Readiness score": overall + " / 100",
+          "Score band": tag
+        };
+        CATEGORIES.forEach(function (c) {
+          fields[c] = Math.round((byCategory[c].points / byCategory[c].max) * 100) + "%";
+        });
+        fields["Top priorities"] = sortedCats.slice(0, 3).join("; ");
+        return fields;
+      };
+      if (window.attachNotifyForm) { window.attachNotifyForm(form); }
+    }
   }
 
   renderQuestion();

@@ -342,6 +342,11 @@
       var categoryField = form.querySelector('[name="category"]');
       if (categoryField && categoryField.value) { payload.category = categoryField.value; }
 
+      if (typeof form.getExtraFields === "function") {
+        var extra = form.getExtraFields() || {};
+        Object.keys(extra).forEach(function (key) { payload[key] = extra[key]; });
+      }
+
       fetch("https://formsubmit.co/ajax/maxim.rotaru@webamboos.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
