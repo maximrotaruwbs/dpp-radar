@@ -180,6 +180,32 @@
     exportRow.style.display = "flex";
   }
 
+  var notifyForm = document.querySelector('.notify-form[data-tool="Data Organizer follow-up"]');
+  if (notifyForm) {
+    notifyForm.getExtraFields = function () {
+      if (!currentSlug) { return { "Category": "(none selected)" }; }
+      var cat = CATEGORY_FIELDS[currentSlug];
+      var counts = { "in-erp": 0, "ask-supplier": 0, missing: 0, untagged: 0 };
+      var askSupplierFields = [];
+      var missingFields = [];
+      cat.fields.forEach(function (f) {
+        var t = currentTags[f];
+        if (t && counts.hasOwnProperty(t)) { counts[t] += 1; } else { counts.untagged += 1; }
+        if (t === "ask-supplier") { askSupplierFields.push(f); }
+        if (t === "missing") { missingFields.push(f); }
+      });
+      return {
+        "Category": cat.label,
+        "In ERP": String(counts["in-erp"]),
+        "Ask supplier": String(counts["ask-supplier"]),
+        "Missing": String(counts.missing),
+        "Untagged": String(counts.untagged),
+        "Fields to ask supplier": askSupplierFields.join("; ") || "(none)",
+        "Fields missing": missingFields.join("; ") || "(none)"
+      };
+    };
+  }
+
   select.addEventListener("change", function () {
     if (select.value) { render(select.value); } else { fieldsEl.innerHTML = ""; summaryEl.innerHTML = ""; progressEl.innerHTML = ""; exportRow.style.display = "none"; }
   });
