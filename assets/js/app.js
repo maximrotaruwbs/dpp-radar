@@ -262,6 +262,105 @@
   } // end categories guard
 
   /* ---------------------------------------------------------------------
+   * Free tools - driven entirely by DPP_TOOLS (assets/js/tools-data.js).
+   * "home" context = homepage compact grid, "hub" context = /tools page.
+   * ------------------------------------------------------------------- */
+  if (typeof DPP_TOOLS !== "undefined") {
+    var toolStatusClass = { live: "live", soon: "soon" };
+
+    function toolHref(tool, context) {
+      if (tool.externalAnchor) {
+        return context === "home" ? tool.externalAnchor : "../" + tool.externalAnchor;
+      }
+      return context === "home" ? ("tools/" + tool.slug + ".html") : (tool.slug + ".html");
+    }
+
+    function renderToolCard(tool, context, detailed) {
+      var href = toolHref(tool, context);
+      var statusLabel = tool.status === "live" ? "Live" : "Coming soon";
+      var icon = tool.icon || "🔧";
+      var html =
+        '<a class="card tool-card" href="' + href + '">' +
+        '<div class="tool-top"><span class="tool-icon">' + icon + '</span>' +
+        '<span class="status-pill ' + toolStatusClass[tool.status] + '">' + statusLabel + '</span></div>' +
+        '<h3>' + tool.title + '</h3><p>' + tool.blurb + '</p>';
+      if (detailed && tool.getLine) {
+        html += '<span class="tool-getline">' + tool.getLine + '</span>';
+      }
+      html += '<span class="tool-arrow">View tool →</span></a>';
+      return html;
+    }
+
+    var toolsGridHome = document.getElementById("toolsGrid");
+    if (toolsGridHome) {
+      toolsGridHome.innerHTML = DPP_TOOLS.map(function (t) { return renderToolCard(t, "home", false); }).join("");
+    }
+
+    var toolsGridHub = document.getElementById("toolsGridHub");
+    if (toolsGridHub) {
+      toolsGridHub.innerHTML = DPP_TOOLS.map(function (t) { return renderToolCard(t, "hub", true); }).join("");
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+   * Generic "notify me" capture form, used on tool scaffold pages.
+   * Same delivery mechanism as the main contact form (FormSubmit AJAX) -
+   * no email is required to use any "interactive" tool; this only ever
+   * appears as an optional launch notice or on "capture"-type tools.
+   * ------------------------------------------------------------------- */
+  document.querySelectorAll(".notify-form").forEach(function (form) {
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var note = form.querySelector(".notify-note");
+      var email = form.email.value.trim();
+      var toolName = form.getAttribute("data-tool") || "a DPP Radar tool";
+
+      note.classList.remove("is-error", "is-success");
+
+      if (!email) {
+        note.textContent = "Please enter an email address.";
+        note.classList.add("is-error");
+        return;
+      }
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      note.textContent = "Sending…";
+
+      var payload = {
+        email: email,
+        _subject: "DPP Radar - notify me: " + toolName,
+        _template: "table",
+        _captcha: "false"
+      };
+      var categoryField = form.querySelector('[name="category"]');
+      if (categoryField && categoryField.value) { payload.category = categoryField.value; }
+
+      fetch("https://formsubmit.co/ajax/maxim.rotaru@webamboos.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          if (!res.ok) { throw new Error("Request failed"); }
+          return res.json();
+        })
+        .then(function () {
+          note.textContent = "Thanks - we'll email you as soon as this is ready.";
+          note.classList.add("is-success");
+          form.reset();
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong - please try again, or use the contact form.";
+          note.classList.add("is-error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
+    });
+  });
+
+  /* ---------------------------------------------------------------------
    * "After the scan" phone mock-up
    * ------------------------------------------------------------------- */
   var products = {
