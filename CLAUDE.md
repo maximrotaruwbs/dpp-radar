@@ -6,8 +6,6 @@ mechanics diagram, a post-scan consumer preview, official-source news, FAQ, and 
 contact form.
 
 - `index.html` — all homepage content and sections
-- `newsletter.html` — standalone newsletter details/subscribe page, linked from the
-  homepage newsletter section and every page footer
 - `categories/*.html` — one detail page per ESPR product category, linked from the
   homepage category cards
 - `tools/index.html` + `tools/*.html` — the Free Tools hub and one scaffold/detail page
@@ -92,12 +90,6 @@ as part of the definition of done for any content change. Concretely, on every c
     EU sources — re-check names, URLs and descriptions periodically (same spirit as
     point 5), keep the disclaimer's "last checked" date current, and never accept paid
     placement or list a ranking.
-
-12. **Newsletter copy stays in sync and current.** The homepage `#newsletter` section
-    and `newsletter.html` share the same headline, "what's inside" list, and sample
-    headlines — edit both together, they must not drift. Once real issues start
-    shipping, swap the placeholder "Recent issues opened with" headlines for actual
-    past subject lines rather than leaving the original examples in place indefinitely.
 
 ## Deployment
 
