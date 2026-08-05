@@ -550,53 +550,6 @@ button{ font-family:inherit; }
 .news-footnote a{ color:var(--accent); font-weight:600; }
 
 /* ==========================================================================
-   Newsletter
-   ========================================================================== */
-
-.newsletter-card{
-  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-  padding:40px; box-shadow:var(--shadow-card);
-}
-.newsletter-inside{
-  list-style:none; margin:22px 0 0; padding:0;
-  display:grid; grid-template-columns:repeat(2, 1fr); gap:10px 24px;
-}
-.newsletter-inside li{
-  font-size:.92rem; color:var(--text-dim); padding-left:22px; position:relative;
-}
-.newsletter-inside li::before{
-  content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:700;
-}
-.newsletter-samples-label{
-  font-size:.78rem; color:var(--text-dimmer); text-transform:uppercase; letter-spacing:.06em;
-  margin:28px 0 12px; font-family:"JetBrains Mono",monospace;
-}
-.newsletter-samples{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
-.newsletter-samples li{
-  font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:.95rem; color:var(--text);
-  padding:12px 18px; border-left:3px solid var(--accent-2); background:var(--bg-alt); border-radius:0 10px 10px 0;
-}
-.newsletter-note{ font-size:.8rem; color:var(--text-dimmer); text-align:left; margin:-6px 0 0; }
-.newsletter-more{ margin-top:24px; font-size:.9rem; }
-.newsletter-more a{ color:var(--accent); font-weight:600; }
-
-@media (max-width:600px){
-  .newsletter-card{ padding:28px 22px; }
-  .newsletter-inside{ grid-template-columns:1fr; }
-}
-
-.newsletter-page{ padding-top:170px; padding-bottom:120px; text-align:center; }
-.newsletter-page .wrap-narrow{ max-width:640px; }
-.newsletter-page h1{ font-size:clamp(1.9rem, 4vw, 2.6rem); margin-bottom:18px; }
-.newsletter-page .newsletter-lead{ font-size:1.05rem; color:var(--text-dim); margin-bottom:8px; }
-.newsletter-page .newsletter-inside{ text-align:left; max-width:420px; margin:32px auto 0; }
-.newsletter-page .notify-form{ margin:36px auto 0; justify-content:center; }
-.newsletter-page .newsletter-samples{ text-align:left; max-width:480px; margin:16px auto 0; }
-.newsletter-page .newsletter-samples-label{ text-align:center; }
-.newsletter-page .newsletter-note{ text-align:center; }
-.newsletter-page .newsletter-more{ text-align:center; }
-
-/* ==========================================================================
    FAQ
    ========================================================================== */
 
