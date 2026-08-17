@@ -16,6 +16,9 @@ contact form.
 - `assets/js/tools-data.js` — single source of truth for the Free Tools feature (see
   point 9 below)
 - `assets/img/og-image.png` — social preview image
+- `assets/img/favicon.svg`, `favicon-{16,32}x{16,32}.png`, `apple-touch-icon.png`,
+  `android-chrome-{192,512}.png` — favicon set, rendered from the same brand-mark SVG
+  used in the header logo; `site.webmanifest` (repo root) references the Android sizes
 - `robots.txt`, `sitemap.xml` — crawler access and discovery
 - `.github/workflows/deploy-pages.yml` — deploys to GitHub Pages on every push to `main`
 
