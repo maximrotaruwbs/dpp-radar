@@ -941,13 +941,53 @@ button{ font-family:inherit; }
 .directory-entry-link{ display:inline-block; margin-top:12px; font-weight:600; color:var(--accent); font-size:.88rem; }
 .directory-empty{ display:none; text-align:center; color:var(--text-dim); padding:40px 0; }
 
+/* ==========================================================================
+   DPP Demo Generator
+   ========================================================================== */
+
+.demogen-layout{ display:grid; grid-template-columns:1fr 460px; gap:40px; align-items:start; margin-top:8px; }
+.demogen-form .form-row{ margin-bottom:18px; }
+.demogen-form select, .demogen-form textarea, .demogen-form input[type="number"], .demogen-form input[type="text"]{
+  background:rgba(16,32,58,0.035); border:1px solid var(--border); border-radius:10px;
+  padding:12px 14px; color:var(--text); font-family:inherit; font-size:.92rem; width:100%;
+}
+.demogen-form textarea{ resize:vertical; min-height:64px; }
+.demogen-materials-label{ font-weight:600; font-size:.92rem; margin-bottom:8px; display:block; }
+.demogen-material-row{ display:flex; gap:8px; margin-bottom:8px; align-items:center; }
+.demogen-material-row input[type="text"]{ flex:1 1 auto; }
+.demogen-material-row input[type="number"]{ width:76px; flex:0 0 auto; }
+.demogen-remove-material{
+  flex:0 0 auto; width:32px; height:32px; border-radius:50%; border:1px solid var(--border);
+  background:var(--surface); color:var(--text-dim); cursor:pointer; font-size:1rem; line-height:1;
+}
+.demogen-remove-material:hover{ border-color:#b3261e; color:#b3261e; }
+.demogen-add-material{
+  font-size:.82rem; font-weight:600; color:var(--accent); background:none; border:none;
+  cursor:pointer; padding:0; margin-bottom:20px;
+}
+.demogen-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+.demogen-preview-wrap{ position:sticky; top:110px; }
+.demogen-share-note{ font-size:.8rem; color:var(--text-dimmer); margin-top:12px; min-height:1em; word-break:break-all; }
+.demogen-share-note.is-success{ color:#0a7a3d; }
+.demogen-disclaimer{
+  background:rgba(16,32,58,0.04); border:1px solid var(--border); border-radius:12px;
+  padding:14px 18px; font-size:.86rem; color:var(--text-dim); margin-top:20px;
+}
+
+@media (max-width:900px){
+  .demogen-layout{ grid-template-columns:1fr; }
+  .demogen-preview-wrap{ position:static; }
+}
+
 @media print{
   .site-header, .site-footer, .tool-back, .quiz-nav, .organizer-export-row,
   .quiz-export-row, .notify-form, .tool-detail-cta, .scanlines, .tool-placeholder,
-  .directory-toolbar, .directory-search{ display:none !important; }
+  .directory-toolbar, .directory-search, #scorecardFaq,
+  .demogen-form, .demogen-actions, .demogen-disclaimer, #demoGenFaq{ display:none !important; }
   body{ background:#fff; }
   .tool-detail-page{ padding-top:20px; }
   .organizer-fields, .quiz-card{ box-shadow:none; border:1px solid #ccc; }
   .directory-entry{ box-shadow:none; border:1px solid #ccc; }
+  .demogen-layout{ display:block; }
 }
 
