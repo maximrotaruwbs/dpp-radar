@@ -60,6 +60,15 @@ var DPP_TOOLS = [
     icon: "🧭"
   },
   {
+    slug: "dpp-demo-generator",
+    title: "DPP Demo Generator",
+    blurb: "Enter your product details and preview a Digital Product Passport, then copy a link to share the exact same preview.",
+    getLine: "You'll get: a live passport preview in our demo's layout, plus a link that reproduces it exactly.",
+    status: "live",
+    type: "interactive",
+    icon: "🧾"
+  },
+  {
     slug: "time-estimator",
     title: "Time-to-DPP Estimator",
     blurb: "Enter category, SKU count and supplier count to estimate months-to-ready by phase.",
@@ -67,15 +76,6 @@ var DPP_TOOLS = [
     status: "soon",
     type: "interactive",
     icon: "⏱️"
-  },
-  {
-    slug: "dpp-demo-generator",
-    title: "DPP Demo Generator",
-    blurb: "Enter your product details and get a shareable, verifiable passport page of your own.",
-    getLine: "You'll get: a shareable, verifiable passport page built from your own product details.",
-    status: "soon",
-    type: "interactive",
-    icon: "🧾"
   },
   {
     slug: "supplier-templates",
