@@ -20,6 +20,8 @@ contact form.
   `android-chrome-{192,512}.png` — favicon set, rendered from the same brand-mark SVG
   used in the header logo; `site.webmanifest` (repo root) references the Android sizes
 - `robots.txt`, `sitemap.xml` — crawler access and discovery
+- `llms.txt` — plain-Markdown index of the site's pages for AI answer engines/agents
+  (the emerging `llms.txt` convention — see llmstxt.org)
 - `.github/workflows/deploy-pages.yml` — deploys to GitHub Pages on every push to `main`
 
 Live at: https://dppradar.eu/
@@ -60,8 +62,10 @@ as part of the definition of done for any content change. Concretely, on every c
 
 6. **New sections/pages need discoverability too.** If you add a new route or a
    meaningfully large new section, add/update the `sitemap.xml` entry, consider whether
-   a new JSON-LD type is warranted (e.g. `Event`, `ItemList`), and check whether
-   `robots.txt` needs adjusting.
+   a new JSON-LD type is warranted (e.g. `Event`, `ItemList`), check whether `robots.txt`
+   needs adjusting, and add a line for it to `llms.txt` under the right heading (or a new
+   heading if it's a new category of page). Remove/update its `llms.txt` line too if a
+   page is removed or its purpose changes.
 
 7. **Rebrand/redesign → regenerate the OG image.** `assets/img/og-image.png` is a
    screenshot of a small standalone HTML snippet matching the hero's visual style (dark
