@@ -1,0 +1,45 @@
+# DPP Radar
+
+> Independent tracker for the EU Digital Product Passport (DPP): scope, ESPR rollout timeline, product categories in scope, how a DPP works, and what a QR scan shows. Not affiliated with, endorsed by, or an official channel of the European Commission - always confirm compliance-critical facts on ec.europa.eu.
+
+DPP Radar aggregates public information about the EU Digital Product Passport under the Ecodesign for Sustainable Products Regulation (ESPR). News items link only to official ec.europa.eu sources. The site also offers free interactive tools for DPP readiness and data preparation - most require no sign-up.
+
+## Core pages
+
+- [Homepage](https://dppradar.eu/): product scope, ESPR rollout timeline, category grid, mechanics diagram, consumer scan preview, official EU news, FAQ, contact
+- [Categories section](https://dppradar.eu/#categories): which product categories are in scope and their regulatory status
+- [Timeline section](https://dppradar.eu/#timeline): ESPR/DPP rollout timeline by category and milestone
+- [How it works section](https://dppradar.eu/#how-it-works): the mechanics of generating, attaching, and registering a DPP
+- [After the scan section](https://dppradar.eu/#after-scan): what a consumer sees after scanning a DPP QR code, with an interactive demo
+- [News section](https://dppradar.eu/#news): official-source-only EU DPP news, manually verified
+- [FAQ section](https://dppradar.eu/#faq): common questions about DPP scope, responsibility, and compliance
+
+## Product categories
+
+- [Batteries](https://dppradar.eu/categories/batteries.html)
+- [Iron & Steel](https://dppradar.eu/categories/iron-steel.html)
+- [Textiles & Apparel](https://dppradar.eu/categories/textiles-apparel.html)
+- [Tyres](https://dppradar.eu/categories/tyres.html)
+- [Aluminium](https://dppradar.eu/categories/aluminium.html)
+- [Furniture](https://dppradar.eu/categories/furniture.html)
+- [Mattresses](https://dppradar.eu/categories/mattresses.html)
+- [Electronics & ICT](https://dppradar.eu/categories/electronics-ict.html)
+
+## Free tools
+
+- [Free Tools hub](https://dppradar.eu/tools/index.html): every tool listed together, live tools first
+- [DPP Readiness Scorecard](https://dppradar.eu/tools/readiness-scorecard.html): 12-question quiz, 0-100 readiness score, category breakdown, personalised action list
+- [DPP Data Organizer](https://dppradar.eu/tools/data-organizer.html): checklist of every data field a DPP requires per category, tag as in-ERP/ask-supplier/missing, export to CSV or PDF
+- [Interactive DPP Demo](https://dppradar.eu/#after-scan): consumer vs authority views of a real passport, live tamper check
+- [DPP Tools & Software Directory](https://dppradar.eu/tools/directory.html): filterable directory of DPP issuers, wallet providers, data-carrier standards, and open-source projects, with an EU DPP Hub / EUDI Wallet / GS1 Digital Link entry each
+- [DPP Demo Generator](https://dppradar.eu/tools/dpp-demo-generator.html): enter product details, get a live Digital Product Passport preview and a shareable link that rebuilds it exactly
+
+## Official EU sources
+
+- [EU Digital Product Passport hub (European Commission)](https://single-market-economy.ec.europa.eu/single-market/digital-product-passport_en)
+- [ESPR implementation overview](https://green-forum.ec.europa.eu/implementing-ecodesign-sustainable-products-regulation_en)
+
+## Optional
+
+- [Sitemap](https://dppradar.eu/sitemap.xml)
+- Tools not yet live (listed on the Free Tools hub): Time-to-DPP Estimator, Supplier Data-Request Template Pack, Deadline Alerts, "Is a QR code enough?" Quiz
